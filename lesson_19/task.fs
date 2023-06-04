@@ -14,8 +14,7 @@ let unvat n x = x / (1.0 + float n / 100.0)
 
 // 20.3.3
 let rec min f =
-    let rec innerMin n =
-        if f(n) = 0 then n
-        elif f(n) < 0 then -1
-        else innerMin(n - f(n))
-    innerMin
+    let rec innerMin = function
+        | (f, n) when f(n) = 0 -> n
+        | (f, n) -> innerMin (f, n + 1)
+    innerMin (f, 1)
