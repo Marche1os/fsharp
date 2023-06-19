@@ -36,9 +36,9 @@ let rec intersect (xs1, xs2) =
 let rec plus (xs1, xs2) =
     match xs1, xs2 with
     | ([], []) | ([], _) | (_, []) -> xs1 @ xs2
-    | head1::tail1, head2::tail2 when head1 > head2 -> head2 :: plus(head1::tail1, tail2)
-    | head1::tail1, head2::tail2 when head1 < head2 -> head2 :: plus(tail1, head2::tail2)
-    | head1::tail1, head2::tail2 when head1 = head2 -> [head1; head2] @ plus(tail1, tail2)
+    | head1::tail1, head2::tail2 when head1 > head2 -> head1 :: plus(head1::tail1, tail2)
+    | head1::tail1, head2::tail2 when head1 < head2 -> head1 :: plus(tail1, head2::tail2)
+    | head1::tail1, head2::tail2 -> head2 :: plus (head1::tail1, tail2)
     
 // 40.2.5
 let rec minus (xs1, xs2) =
