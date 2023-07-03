@@ -18,3 +18,9 @@ let fibo n =
         seq <- seq @ [a + b]
         i <- i + 1
     seq.[n]
+
+
+// 49.5.1
+let even_seq = Seq.initInfinite (fun i -> (i + 2) * 2)
+
+printfn "%d" (Seq.nth 0 even_seq)
